@@ -1,0 +1,20 @@
+﻿<div id="Suppliers">
+    <div class="form-group" style="padding-left: 3%;">
+        <label>Search:</label>
+        <input ng-model="$ctrl.searchQuery" class="form-control" style="display: inline-block; width: auto" />
+        <button type="button" class="btn btn-default btn-sm" style="float: right">
+            <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Supplier
+        </button>
+
+    </div>
+    <ul>
+        <li ng-repeat="supplier in $ctrl.Suppliers | filter:$ctrl.searchQuery" style="height: 50px; list-style: none; border-bottom: 1px solid; margin-bottom: 20px;">
+            <a href="#!/suppliers/edit/{{supplier.id}}">{{supplier.name}}</a>
+
+            <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.delete(supplier.id)" style="float: right; margin-right: 0px">
+                <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete &nbsp;
+            </button>
+
+        </li>
+    </ul>
+</div>

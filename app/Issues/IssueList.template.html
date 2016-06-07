@@ -1,0 +1,6 @@
+﻿<div id="Issues">
+    <div ng-repeat="issue in $ctrl.Issues" style="width: 10%; height: 10%; float: left; padding: 5px;">
+        <img class="img-responsive" ng-src="{{issue.thumbnail.pathIncludingExtension}}" />
+        <div>{{issue.title}}</div>
+    </div>
+</div>

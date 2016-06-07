@@ -1,0 +1,1 @@
+﻿angular.module('comicBookApp', ['ngRoute', 'supplierDetail', 'issueList', 'supplierList']);
