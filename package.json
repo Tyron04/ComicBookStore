@@ -1,0 +1,24 @@
+{
+  "name": "comicbook",
+  "version": "1.0.0",
+  "description": "",
+  "private":true,
+  "dependencies": {
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+	"prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tyron04/ComicBookStore.git"
+  },
+  "author": "Tyron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tyron04/ComicBookStore/issues"
+  },
+  "homepage": "https://github.com/Tyron04/ComicBookStore#readme"
+}
