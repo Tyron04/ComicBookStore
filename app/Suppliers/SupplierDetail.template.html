@@ -1,7 +1,7 @@
 ﻿<div style="width: 75%; padding-left: 15%;">
     <div class="form-group">
         <label>ID</label>
-        <input ng-model="$ctrl.supplierRecord.id" class="form-control" disabled />
+        <input ng-model="$ctrl.supplierRecord.id" class="form-control" ng-disabled="{{$ctrl.edit}}" />
     </div>
     <div class="form-group">
         <label>Name</label>
@@ -15,6 +15,6 @@
         <label>Reference</label>
         <input ng-model="$ctrl.supplierRecord.reference" class="form-control" />
     </div>
-    <button type="button" class="btn btn-primary" ng-click="$ctrl.update()">Save</button>
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.update($event)">Save</button>
     <button type="button" class="btn btn-primary" ng-click="$ctrl.return()">Cancel</button>
 </div>

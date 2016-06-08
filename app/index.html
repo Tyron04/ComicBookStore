@@ -4,14 +4,24 @@
     <meta charset="utf-8">
     <title>Comic Book Store</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="comicBookStore.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
+    <script src="PageOperations.factory.js"></script>
     <script src="Issues/IssueList.module.js"></script>
     <script src="Issues/IssueList.component.js"></script>
+    <script src="Issues/IssueDetail.module.js"></script>
+    <script src="Issues/IssueDetail.component.js"></script>
+    <script src="Suppliers/SupplierOperations.factory.js"></script>
     <script src="Suppliers/SupplierList.module.js"></script>
     <script src="Suppliers/SupplierList.component.js"></script>
     <script src="Suppliers/SupplierDetail.module.js"></script>
@@ -31,6 +41,6 @@
         </ul>
     </nav>
 
-    <div ng-view></div>
+    <div id="View" ng-view></div>
 </body>
 </html>

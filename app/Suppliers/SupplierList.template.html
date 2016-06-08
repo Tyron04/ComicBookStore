@@ -1,20 +1,34 @@
 ﻿<div id="Suppliers">
     <div class="form-group" style="padding-left: 3%;">
         <label>Search:</label>
-        <input ng-model="$ctrl.searchQuery" class="form-control" style="display: inline-block; width: auto" />
-        <button type="button" class="btn btn-default btn-sm" style="float: right">
+        <input ng-model="searchQuery" class="form-control" style="display: inline-block; width: auto" />
+        <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.insert()" style="float: right">
             <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Supplier
         </button>
 
     </div>
     <ul>
-        <li ng-repeat="supplier in $ctrl.Suppliers | filter:$ctrl.searchQuery" style="height: 50px; list-style: none; border-bottom: 1px solid; margin-bottom: 20px;">
-            <a href="#!/suppliers/edit/{{supplier.id}}">{{supplier.name}}</a>
+        <li ng-repeat="supplier in $ctrl.Suppliers" style="height: 50px; list-style: none; border-bottom: 1px solid; margin-bottom: 20px;">
+            <a href="#" ng-click="$ctrl.selectSupplier(supplier.id)">{{supplier.name}}</a>
 
-            <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.delete(supplier.id)" style="float: right; margin-right: 0px">
+            <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.delete(supplier.id, $event)" style="float: right; margin-right: 0px">
                 <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete &nbsp;
             </button>
 
         </li>
     </ul>
+
+    <div style="float: right">
+        <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.FilterPage('previous')">
+            <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;
+        </button>
+
+        <button ng-repeat="page in $ctrl.pages" type="button" class="btn btn-default btn-sm" ng-click="$ctrl.FilterPage(page)">
+            &nbsp;&nbsp;{{page}}&nbsp;&nbsp;
+        </button>
+        <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.FilterPage('next')">
+            <span class="glyphicon glyphicon-chevron-right"></span>&nbsp;
+        </button>
+
+    </div>
 </div>

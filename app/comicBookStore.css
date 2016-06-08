@@ -1,0 +1,11 @@
+﻿.issueDetails label {
+    width: 100%;
+}
+
+    .issueDetails label h4 {
+        text-decoration: underline;
+    }
+
+.issueInfo {
+    margin-bottom: 5%;
+}

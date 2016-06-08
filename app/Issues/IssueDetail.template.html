@@ -1,0 +1,18 @@
+﻿<div class="issueDetails">
+    <img class="img-responsive" ng-src="{{$ctrl.issueRecord.thumbnail.pathIncludingExtension}}" style="width: 29%; float: left; padding: 20px;" />
+    <div class="form-group" style="display: inline-block; position: absolute; width: 67%; margin-top: 17px;">
+        <div class="issueInfo">
+            <label><h4>Title:</h4> {{$ctrl.issueRecord.title}}</label>
+            <label><h4>Publisher:</h4> {{$ctrl.issueRecord.publisher}}</label>
+            <label><h4>Description:</h4> {{$ctrl.issueRecord.description}}</label>
+        </div>
+        <div class="form-group" style="width: 13%">
+            <img ng-repeat="pic in $ctrl.issueRecord.images" class="img-responsive" ng-src="{{pic.pathIncludingExtension}}" />
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.placeOrder()">Order</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.return()">Cancel</button>
+    </div>
+
+
+</div>
+
