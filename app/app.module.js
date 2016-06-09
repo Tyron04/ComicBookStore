@@ -1,1 +1,1 @@
-﻿angular.module('comicBookApp', ['ngRoute', 'supplierDetail', 'issueList', 'supplierList', 'issueDetail', 'ngMaterial']);
+﻿angular.module('comicBookApp', ['ngRoute', 'supplierDetail', 'issueList', 'supplierList', 'issueDetail', 'ngMaterial', 'orderPage']);

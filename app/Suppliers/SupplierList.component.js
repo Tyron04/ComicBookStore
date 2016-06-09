@@ -3,53 +3,34 @@ angular
 .module('supplierList')
 .component('supplierList', {
     templateUrl: 'Suppliers/SupplierList.template.html',
-    controller: ['$http', '$window', '$scope', '$filter', 'suppliersOperations', 'pageOperations', '$mdDialog', function SupplierListController($http, $window, $scope, $filter, suppliersOperations, pageOperations, $mdDialog) {
+    controller: ['$http', '$window', '$scope', '$filter', 'suppliersOperations', 'pageOperations', function SupplierListController($http, $window, $scope, $filter, suppliersOperations, pageOperations) {
         var self = this;
         self.pages = [];
         self.AllSuppliers = {};
         self.currentPage = 1;
         self.NumPages = 1;
-        self.isRedirect = false;
         self.get = function () {
             suppliersOperations.get().then(function (response) {
                 self.AllSuppliers = response.data;
                 self.FilterPage('', self.AllSuppliers);
-                var Url = suppliersOperations.redirectUrl;
-                if (Url !== undefined && Url !== '')
-                    isRedirect = true;
-                else
-                    isRedirect = false;
             });
         };
 
         self.get();
 
-        self.selectSupplier = function (supplierId) {
-            var Url = suppliersOperations.redirectUrl;
-            if (Url !== undefined && Url !== '') {
-                suppliersOperations.setId(supplierId);
-                $window.location.href = Url;
-            }
-            else {
-                $window.location.href = '#!/suppliers/edit/' + supplierId;
-            }
+        self.selectSupplier = function (supplierId, event) {
+            event.stopPropagation();
+            $window.location.href = '#!/suppliers/edit/' + supplierId;
         };
 
         self.delete = function (supplierId, ev) {
-            var confirm = $mdDialog.confirm()
-         .title('Confirm Delete')
-         .textContent('You are about to delete this supplier. Are you sure?')
-         .ariaLabel('Lucky day')
-         .targetEvent(ev)
-         .ok('Yes')
-         .cancel('No');
-            $mdDialog.show(confirm).then(function () {
+            ev.stopPropagation();
+            pageOperations.showConfirm('Confirm Delete', 'You are about to delete this supplier. Are you sure?', ev).then(function () {
                 suppliersOperations.deleteSupplier(supplierId).then(function (response) {
-                    $window.alert('Supplier successfully deleted');
+                    pageOperations.showAlert('Success', 'Supplier successfully deleted', angular.element(document.querySelector('#View')), ev);
                     self.get();
                 }, function (response) {
-                    $window.alert('Error deleting supplier. Error: ' + response.data);
-
+                    pageOperations.showAlert('Error', 'Error deleting supplier. Error: ' + response.data.exceptionMessage, angular.element(document.querySelector('#View')), ev);
                 });
             });
         };

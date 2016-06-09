@@ -19,6 +19,9 @@ module('comicBookApp')
     when('/suppliers/insert', {
         template: '<supplier-detail></supplier-detail>'
     }).
+    when('/order', {
+        template: '<order-page></order-page>'
+    }).
     otherwise('/issues');
 
 }]);

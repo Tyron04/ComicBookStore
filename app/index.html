@@ -6,17 +6,18 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="comicBookStore.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="PageOperations.factory.js"></script>
+    <script src="Issues/IssueOperations.factory.js"></script>
     <script src="Issues/IssueList.module.js"></script>
     <script src="Issues/IssueList.component.js"></script>
     <script src="Issues/IssueDetail.module.js"></script>
@@ -26,9 +27,10 @@
     <script src="Suppliers/SupplierList.component.js"></script>
     <script src="Suppliers/SupplierDetail.module.js"></script>
     <script src="Suppliers/SupplierDetail.component.js"></script>
+    <script src="Orders/Orders.component.js"></script>
 </head>
 
-<body>
+<body id="View">
     <nav class="navbar navbar-inverse">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">Stan Lee's Comic Book Store</a>
@@ -38,9 +40,11 @@
             </li>
             <li><a href="#!/suppliers">Suppliers</a>
             </li>
+            <li><a href="#!/order">Order</a>
+            </li>
         </ul>
     </nav>
 
-    <div id="View" ng-view></div>
+    <div ng-view></div>
 </body>
 </html>

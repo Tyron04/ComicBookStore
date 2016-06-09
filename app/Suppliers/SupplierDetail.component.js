@@ -1,7 +1,7 @@
 ﻿angular.module('supplierDetail').
 component('supplierDetail', {
     templateUrl: 'Suppliers/SupplierDetail.template.html',
-    controller: ['$http', '$routeParams', '$window', 'suppliersOperations','$mdDialog', function SupplierDetailController($http, $routeParams, $window, suppliersOperations, $mdDialog) {
+    controller: ['$http', '$routeParams', '$window', 'suppliersOperations', 'pageOperations', function SupplierDetailController($http, $routeParams, $window, suppliersOperations, pageOperations) {
         var self = this;
         self.get = function () {
             if ($routeParams.supplierId !== null && $routeParams.supplierId !== '' && $routeParams.supplierId !== undefined) {
@@ -24,7 +24,7 @@ component('supplierDetail', {
                     records = response.data;
                     for (var i = 0; i < records.length; i++) {
                         if (records[i].id == data.id) {
-                            $window.alert('Supplier with ID: ' + data.id + ' already exists');
+                            pageOperations.showAlert('Warning', 'Supplier with ID: ' + data.id + ' already exists', angular.element(document.querySelector('#View')), ev);
                             return
                         }
                     }
@@ -37,21 +37,11 @@ component('supplierDetail', {
         };
         self.put = function (ev) {
             suppliersOperations.update(self.supplierRecord).then(function (response) {
-                $window.alert('Supplier saved successfully');
-                $mdDialog.show(
-                         $mdDialog.alert()
-                        .parent(angular.element(document.querySelector('#View')))
-                        .clickOutsideToClose(true)
-                        .title('Saved Successfully')
-                        .textContent('Supplier details saved successfully')
-                        .ariaLabel('Alert Dialog Demo')
-                        .ok('OK')
-                        .targetEvent(ev)
-                              );
-
+                pageOperations.showAlert('Success', 'Supplier saved successfully!', angular.element(document.querySelector('#View')), ev);
                 self.return();
             }, function (response) {
-                $window.alert('Error modifying supplier. Error: ' + response.data);
+                pageOperations.showAlert('Error', 'Error modifying supplier. Error: ' + response.data.exceptionMessage, angular.element(document.querySelector('#View')), ev);
+                $window.alert();
 
             });
         }

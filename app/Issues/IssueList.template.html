@@ -1,6 +1,8 @@
-﻿<div id="Issues">
-    <div ng-repeat="issue in $ctrl.Issues" style="width: 10%; height: 10%; float: left; padding: 5px;">
-        <img class="img-responsive" ng-src="{{issue.thumbnail.pathIncludingExtension}}" ng-click="$ctrl.viewIssue(issue.id)" />
-        <div>{{issue.title}}</div>
+﻿<div id="Issues" >
+    <div class="col-md-4 imgContainer" ng-repeat="issue in $ctrl.Issues">
+        <div class="fixOverlayDiv">
+            <img class="img" ng-src="{{issue.thumbnail.pathIncludingExtension}}" ng-click="$ctrl.viewIssue(issue.id)" />
+            <div class="OverlayText">{{issue.title}}</div>
+        </div>
     </div>
 </div>

@@ -2,11 +2,11 @@
 .module('comicBookApp')
 .factory('suppliersOperations', ['$http', function ($http) {
     var supplierURL = 'http://frontendshowcase.azurewebsites.net/api/Suppliers/';
-    var selectedSupplierId = 0;
-    var transferUrl = '';
+    var sharedData = {
+        selectedSupplierId: 0,
+        transferUrl: '',
+    }
     return {
-        supplierURL: supplierURL,
-
         get: function (supplierId) {
             if (supplierId === undefined || supplierId === null || supplierId === '')
                 return $http.get(supplierURL);
@@ -23,15 +23,19 @@
         },
 
         returnToScreen: function (url) {
-            transferId = url;
+            sharedData.transferUrl = url;
         },
 
-        redirectUrl: transferUrl,
+        redirectUrl: function () {
+            return sharedData.transferUrl;
+        },
 
-        supplierId: selectedSupplierId,
+        supplierId: function () {
+            return sharedData.selectedSupplierId
+        },
 
         setId: function (id) {
-            selectedSupplierId = id;
+            sharedData.selectedSupplierId = id;
         }
     }
 }])

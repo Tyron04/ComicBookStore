@@ -1,0 +1,27 @@
+﻿<div id="order" style="width: 75%; padding-left: 15%;">
+    <h1 style="text-align: center">Place Order</h1>
+    <div class="form-group">
+        <label>Issue</label>
+        <select ng-model="selectedIssue" class="form-control" required>
+            <option ng-repeat="issue in $ctrl.issues" value="{{issue.id}}">{{issue.title}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Supplier</label>
+        <select ng-model="selectedSupplier" class="form-control" required>
+            <option ng-repeat="supplier in $ctrl.suppliers" value="{{supplier.id}}">{{supplier.name}}
+            </option>
+        </select>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Quality grades</div>
+        <div class="form-group panel-body" ng-repeat="quality in $ctrl.qualities">
+            <label>{{quality.displayName}}</label>
+            <input ng-model="quality.quantity" class="form-control" />
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.order($event)">Order</button>
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.return()">Cancel</button>
+</div>
