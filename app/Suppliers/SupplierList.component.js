@@ -9,6 +9,7 @@ angular
         self.AllSuppliers = {};
         self.currentPage = 1;
         self.NumPages = 1;
+        self.order = 'name'
         self.get = function () {
             suppliersOperations.get().then(function (response) {
                 self.AllSuppliers = response.data;
@@ -39,8 +40,11 @@ angular
             $window.location.href = '#!/suppliers/insert';
         };
 
-        self.FilterPage = function (pageRequested, data) {
+        self.FilterPage = function (pageRequested, data, order) {
             var pageNum = 1;
+            if (order === undefined || order === null || order === '')
+                order = self.order;
+            self.order = order;
             if (data === undefined || data === null || data === '') {
                 if ($scope.searchQuery === undefined || $scope.searchQuery === '')
                     data = self.AllSuppliers;
@@ -53,8 +57,12 @@ angular
                 pageNum = self.currentPage + 1;
             else if (pageRequested !== undefined && pageRequested !== null && pageRequested !== '')
                 pageNum = pageRequested;
+            else
+                pageNum = self.currentPage;
             if (pageNum > self.NumPages || pageNum < 1)
                 pageNum = 1;
+            self.currentPage = pageNum;
+            data = suppliersOperations.order(data, self.order);
             self.Suppliers = pageOperations.paginate(data, pageNum);
             self.NumPages = pageOperations.NumPages();
             self.pages = [];

@@ -1,8 +1,9 @@
-﻿<div id="Issues" >
+﻿<div id="Issues">
     <div class="col-md-4 imgContainer" ng-repeat="issue in $ctrl.Issues">
-        <div class="fixOverlayDiv">
+        <div class="fixOverlayDiv tilt">
             <img class="img" ng-src="{{issue.thumbnail.pathIncludingExtension}}" ng-click="$ctrl.viewIssue(issue.id)" />
-            <div class="OverlayText">{{issue.title}}</div>
+            <div class="OverlayText">{{issue.title}}<!--<div>{{issue.description}}</div>-->
+            </div>
         </div>
     </div>
 </div>

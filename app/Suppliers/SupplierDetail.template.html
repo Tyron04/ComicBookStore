@@ -1,20 +1,28 @@
-﻿<div style="width: 75%; padding-left: 15%;">
-<!--    <div class="form-group">
+﻿<form name="supplierForm" class="panel panel-default">
+    <div class="panel-heading" style="text-align: center" ng-model="$ctrl.title">
+        {{$ctrl.title}}
+    </div>
+    <div class="panel-body">
+        <!--    <div class="form-group">
         <label>ID</label>
         <input ng-model="$ctrl.supplierRecord.id" class="form-control" ng-disabled="{{$ctrl.edit}}" />
     </div>-->
-    <div class="form-group">
-        <label>Name</label>
-        <input ng-model="$ctrl.supplierRecord.name" class="form-control" />
+        <div class="form-group">
+            <label>Name</label>
+            <input ng-model="$ctrl.supplierRecord.name" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input ng-model="$ctrl.supplierRecord.city" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label>Reference</label>
+            <input ng-model="$ctrl.supplierRecord.reference" class="form-control" style="text-transform: uppercase;" required />
+        </div>
     </div>
-    <div class="form-group">
-        <label>City</label>
-        <input ng-model="$ctrl.supplierRecord.city" class="form-control" />
+    <div class="panel-footer">
+        <button type="button" class="btn btn-primary" ng-disabled="supplierForm.$invalid" ng-click="$ctrl.update($event)">Save</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.return()">Cancel</button>
     </div>
-    <div class="form-group">
-        <label>Reference</label>
-        <input ng-model="$ctrl.supplierRecord.reference" class="form-control" />
-    </div>
-    <button type="button" class="btn btn-primary" ng-click="$ctrl.update($event)">Save</button>
-    <button type="button" class="btn btn-primary" ng-click="$ctrl.return()">Cancel</button>
-</div>
+
+</form>

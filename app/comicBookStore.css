@@ -23,9 +23,13 @@
 }
 
 .imgContainer {
-    width: 32%;
-    padding: 3%;
-    margin-top: -2%;
+    /*width: 32%;*/
+    padding: 2%;
+    margin-top: -20px;
+    background-image: url('background.jpg');
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .issueDetails {
@@ -34,6 +38,13 @@
     width: 68%;
     margin-top: 15px;
 }
+
+/*body {
+    background-image: url('supplierListBackground.jpg');
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
 
 .issueContainer > img {
     width: 27%;
@@ -53,9 +64,11 @@
     padding: 0px;
 }
 
-    .fixOverlayDiv > img:hover {
+/*.fixOverlayDiv > img:hover {
         opacity: 0.7;
-    }
+        background-color: blue !important;
+        background-image: none !important;
+    }*/
 
 .OverlayText {
     background-color: #000;
@@ -67,13 +80,49 @@
     width: 375px;
     height: 75px;
     text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-/*body {
+input.ng-invalid, select.ng-invalid {
+    border-color: red !important;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(218, 41, 41, 0.6) !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(218, 41, 41, 0.6) !important;
+}
+
+.panel-heading {
+    font-weight: 900;
+    font-size: x-large;
+}
+
+.panel-default {
+    width: 75%;
+    margin-left: 14%;
+}
+/*#order {
     background-image: url('background.jpg');
-    width: 100%;
-    height: 100%;
-    background-position: 50% 50%;
+    background-position: 0% 50%;
     background-repeat: no-repeat;
     background-size: cover;
 }*/
+
+.navbar-brand {
+    color: #fff !important;
+}
+
+.tilt {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+    .tilt:hover {
+        -webkit-transform: rotate(-10deg);
+        -moz-transform: rotate(-10deg);
+        -o-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }

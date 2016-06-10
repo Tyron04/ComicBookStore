@@ -3,7 +3,7 @@ angular
 .module('issueList')
 .component('issueList', {
     templateUrl: 'Issues/IssueList.template.html',
-    controller: ['$http', '$window', 'issueOperations', function IssueListController($http, $window, issueOperations) {
+    controller: ['$http', '$window','$scope', 'issueOperations', function IssueListController($http, $window,$scope, issueOperations) {
         var self = this;
         self.Issues = {};
         self.get = function () {

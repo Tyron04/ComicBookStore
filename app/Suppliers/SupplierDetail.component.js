@@ -6,11 +6,13 @@ component('supplierDetail', {
         self.get = function () {
             if ($routeParams.supplierId !== null && $routeParams.supplierId !== '' && $routeParams.supplierId !== undefined) {
                 self.edit = true;
+                self.title = 'Edit Supplier';
                 suppliersOperations.get($routeParams.supplierId).then(function (response) {
                     self.supplierRecord = response.data;
                 });
             }
             else {
+                self.title = 'Insert Supplier';
                 self.supplierRecord = {};
                 self.edit = false;
             }
@@ -36,13 +38,12 @@ component('supplierDetail', {
             }
         };
         self.put = function (ev) {
+            self.supplierRecord.reference = self.supplierRecord.reference.toUpperCase();
             suppliersOperations.update(self.supplierRecord).then(function (response) {
                 pageOperations.showAlert('Success', 'Supplier saved successfully!', angular.element(document.querySelector('#View')), ev);
                 self.return();
             }, function (response) {
                 pageOperations.showAlert('Error', 'Error modifying supplier. Error: ' + response.data.exceptionMessage, angular.element(document.querySelector('#View')), ev);
-                $window.alert();
-
             });
         }
         self.return = function () {

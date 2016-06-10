@@ -10,9 +10,7 @@
     <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>City</th>
+                <th ng-repeat="(key,value) in $ctrl.Suppliers[0]" ng-click="$ctrl.FilterPage('','','id')">{{key|uppercase}}</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
@@ -21,6 +19,7 @@
                 <td>{{supplier.id}}</td>
                 <td>{{supplier.name}}</td>
                 <td>{{supplier.city}}</td>
+                <td>{{supplier.reference}}</td>
                 <td>
                     <button type="button" class="btn btn-default btn-sm" ng-click="$ctrl.delete(supplier.id, $event)" style="float: right; margin-right: 0px">
                         <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete &nbsp;

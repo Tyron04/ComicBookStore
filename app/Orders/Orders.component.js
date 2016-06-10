@@ -52,7 +52,7 @@ component('orderPage', {
             var id = issueOperations.getId();
             if (id !== undefined && id !== 0) {
                 issueOperations.setId(0);
-                $scope.selectedIssue = id;
+                $scope.selectedIssue = id.toString();
 
             }
         };
